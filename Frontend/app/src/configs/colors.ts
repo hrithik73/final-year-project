@@ -1,0 +1,15 @@
+export const color = {
+  // primary: "#00bcd4",
+  primary: "rgb(255, 45, 85)",
+  secondary: "#ff9800",
+  success: "#4caf50",
+  warning: "#ffc107",
+  danger: "#f44336",
+  info: "#2196f3",
+  light: "#f4f4f4",
+  dark: "#212121",
+  white: "#ffffff",
+  black: "#000000",
+  gray: "#9e9e9e",
+  gray2: "#f5f5f5",
+}
