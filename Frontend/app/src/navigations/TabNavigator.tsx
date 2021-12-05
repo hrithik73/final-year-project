@@ -1,7 +1,8 @@
 import React from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { AntDesign, Entypo } from "@expo/vector-icons"
+import { Feather, Entypo } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
+import { View } from "react-native"
 
 import CreateEvent from "../screens/CreateEvent"
 import HomeScreen from "../screens/HomeScreen"
@@ -9,19 +10,51 @@ import UserScreen from "../screens/UserScreen"
 import Favourite from "../screens/Favourite"
 import TicketScreen from "../screens/TicketScreen"
 import CreateButton from "../components/Buttons/CreateButton"
+import { color } from "../configs/colors"
 
 const Tab = createBottomTabNavigator()
-//
+
 const TabNavigator = () => {
   const navigation = useNavigation()
 
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: color.background,
+          borderBottomWidth: 0,
+        },
+      }}
+    >
       <Tab.Screen
         name="Home"
         options={{
+          headerLeft: () => (
+            <View
+              style={{
+                backgroundColor: color.black,
+                height: 40,
+                width: 40,
+                justifyContent: "center",
+                alignItems: "center",
+                marginLeft: "10%",
+                borderRadius: 40,
+              }}
+            >
+              <Feather
+                color="white"
+                name="align-justify"
+                size={20}
+                onPress={() => navigation.openDrawer()}
+              />
+            </View>
+          ),
+          headerRight: () => (
+            <Feather style={{ marginRight: 15 }} name="bell" size={25} />
+          ),
+          title: "",
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="home" color={color} size={size} />
+            <Feather name="home" color={color} size={size} />
           ),
         }}
         component={HomeScreen}
@@ -30,7 +63,7 @@ const TabNavigator = () => {
         name="Fav"
         options={{
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="hearto" size={size} color={color} />
+            <Feather name="heart" size={size} color={color} />
           ),
         }}
         component={Favourite}
@@ -57,7 +90,7 @@ const TabNavigator = () => {
         name="User"
         options={{
           tabBarIcon: ({ color, size }) => (
-            <AntDesign name="user" size={size} color={color} />
+            <Feather name="user" size={size} color={color} />
           ),
         }}
         component={UserScreen}
