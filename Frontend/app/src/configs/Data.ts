@@ -39,14 +39,8 @@ export const Categories = [
   {
     __typename: "Category",
     id: "UHJvZHVjdDo7",
-    title: "Category 7",
+    title: "Consort",
     description: "Category 7 description",
-  },
-  {
-    __typename: "Category",
-    id: "UHJvZHVjdDo8",
-    title: "Category 8",
-    description: "Category 8 description",
   },
 ]
 

@@ -1,6 +1,7 @@
 import React from "react"
 import { StyleSheet, View } from "react-native"
 import { TextInput } from "react-native"
+import { color } from "../configs/colors"
 
 interface Props {
   placeholder: string
@@ -28,18 +29,21 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   input: {
-    height: 45,
     width: "100%",
+    height: 45,
     borderWidth: 2,
     borderRadius: 5,
     paddingLeft: 10,
     marginVertical: 10,
+    borderColor: "black",
 
-    elevation: 1,
-    shadowOffset: { width: 1, height: 2 },
-    shadowColor: "grey",
-    shadowOpacity: 0.5,
-    shadowRadius: 10,
+    // overflow: "hidden",
+    // backgroundColor: color.background,
+    // elevation: 3,
+    // shadowOffset: { width: 2, height: 2 },
+    // shadowColor: "black",
+    // shadowOpacity: 1,
+    // shadowRadius: 10,
   },
 })
 export default AppTextInput

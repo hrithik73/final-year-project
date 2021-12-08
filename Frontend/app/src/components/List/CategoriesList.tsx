@@ -57,7 +57,7 @@ const CategoriesList = ({ categories, onSelect, selectedCategory }: Props) => {
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
     marginTop: 10,
     // marginHorizontal: 10,
   },
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 10,
+    marginLeft: 10,
   },
   list: {
     flexDirection: "row",

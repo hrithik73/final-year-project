@@ -21,7 +21,8 @@ import {
 } from "@expo-google-fonts/roboto-mono"
 
 import TabNavigator from "./src/navigations/TabNavigator"
-import DrawerNavigator from "./src/navigations/DrawerNavigator"
+import { View, Text } from "react-native"
+// import DrawerNavigator from "./src/navigations/DrawerNavigator"
 
 const MyTheme = {
   ...DefaultTheme,
@@ -55,8 +56,7 @@ const App = () => {
 
   return (
     <NavigationContainer theme={MyTheme}>
-      {/* <TabNavigator /> */}
-      <DrawerNavigator />
+      <TabNavigator />
     </NavigationContainer>
   )
 }

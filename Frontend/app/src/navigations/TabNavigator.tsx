@@ -2,7 +2,7 @@ import React from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Feather, Entypo } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
-import { View } from "react-native"
+import { View, Text } from "react-native"
 
 import CreateEvent from "../screens/CreateEvent"
 import HomeScreen from "../screens/HomeScreen"
@@ -11,11 +11,12 @@ import Favourite from "../screens/Favourite"
 import TicketScreen from "../screens/TicketScreen"
 import CreateButton from "../components/Buttons/CreateButton"
 import { color } from "../configs/colors"
+import FeedNavigator from "./FeedNavigator"
 
 const Tab = createBottomTabNavigator()
 
 const TabNavigator = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation<any>()
 
   return (
     <Tab.Navigator
@@ -45,19 +46,25 @@ const TabNavigator = () => {
                 color="white"
                 name="align-justify"
                 size={20}
-                onPress={() => navigation.openDrawer()}
+                // onPress={() => navigation.openDrawer()}
               />
             </View>
           ),
           headerRight: () => (
-            <Feather style={{ marginRight: 15 }} name="bell" size={25} />
+            <Feather
+              style={{ marginRight: 15 }}
+              name="bell"
+              size={25}
+              // onPress={() => navigation.navigate("Notification")}
+            />
           ),
-          title: "",
+          headerTitle: () => <Text>{""}</Text>,
+          headerTitleAlign: "center",
           tabBarIcon: ({ color, size }) => (
             <Feather name="home" color={color} size={size} />
           ),
         }}
-        component={HomeScreen}
+        component={FeedNavigator}
       />
       <Tab.Screen
         name="Fav"
