@@ -1,5 +1,5 @@
+import { View, Text, Image, StyleSheet } from "react-native"
 import React from "react"
-import { View, StyleSheet, Image, Text } from "react-native"
 import { Entypo } from "@expo/vector-icons"
 
 import { color } from "../../configs/colors"
@@ -15,8 +15,7 @@ interface Props {
   }
 }
 
-const EventCard = ({ item }: Props) => {
-  // console.log(item)
+const EventCardLG = ({ item }: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.detailContainer}>
@@ -25,7 +24,6 @@ const EventCard = ({ item }: Props) => {
         <View
           style={{
             flexDirection: "row",
-            // justifyContent: "center",
             alignItems: "center",
           }}
         >
@@ -110,4 +108,4 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 })
-export default EventCard
+export default EventCardLG

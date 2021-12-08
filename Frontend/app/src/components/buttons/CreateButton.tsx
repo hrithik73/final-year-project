@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     backgroundColor: color.primary,
-    borderColor: color.gray2,
+    borderColor: color.background,
     borderRadius: 40,
     borderWidth: 10,
     bottom: 40,

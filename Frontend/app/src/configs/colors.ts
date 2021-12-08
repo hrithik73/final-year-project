@@ -1,7 +1,9 @@
 export const color = {
-  // primary: "#00bcd4",
   primary: "rgb(255, 45, 85)",
+  // background: "#f7f7f7",
   background: "#f7f7f7",
+  textLight: "#fff",
+  textDark: "#000",
   secondary: "#ff9800",
   success: "#4caf50",
   warning: "#ffc107",
@@ -12,5 +14,4 @@ export const color = {
   white: "#ffffff",
   black: "#000000",
   gray: "#9e9e9e",
-  gray2: "#f5f5f5",
 }

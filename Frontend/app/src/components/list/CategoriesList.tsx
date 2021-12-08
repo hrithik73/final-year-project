@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 30,
-    borderWidth: 2,
+    borderWidth: 1,
     marginHorizontal: 10,
   },
   catagorieTitile: {
