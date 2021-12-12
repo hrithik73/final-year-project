@@ -52,7 +52,7 @@ export const Posts = [
     image:
       "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
     time: "2020-05-01T00:00:00.000Z",
-    price: "100",
+    price: "$100",
   },
   {
     id: "UG9zdDo2",
@@ -61,7 +61,7 @@ export const Posts = [
     image:
       "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
     time: "2020-05-01T00:00:00.000Z",
-    price: "100",
+    price: "$100",
   },
   {
     id: "UG9zdDo3",
@@ -70,7 +70,7 @@ export const Posts = [
     image:
       "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
     time: "2020-05-01T00:00:00.000Z",
-    price: "100",
+    price: "$100",
   },
   {
     id: "UG9zdDo4",
@@ -79,7 +79,7 @@ export const Posts = [
     image:
       "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
     time: "2020-05-01T00:00:00.000Z",
-    price: "100",
+    price: "$100",
   },
   {
     id: "UG9zdDo5",
@@ -88,6 +88,6 @@ export const Posts = [
     image:
       "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
     time: "2020-05-01T00:00:00.000Z",
-    price: "100",
+    price: "$100",
   },
 ]

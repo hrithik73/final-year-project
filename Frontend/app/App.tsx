@@ -14,17 +14,15 @@ const MyTheme = {
     ...DefaultTheme.colors,
     primary: color.primary,
     // accent: color.background,
-    background: color.background,
+    background: color.dark,
   },
 }
 
 const App = () => {
   const fontsLoaded = useFont()
-
   if (!fontsLoaded) {
     return <AppLoading />
   }
-
   return (
     <NavigationContainer theme={MyTheme}>
       <NativeBaseProvider theme={theme}>

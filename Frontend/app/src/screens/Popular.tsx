@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-import { View, StyleSheet, Text } from "react-native"
-import { Box, Heading, FlatList, Center } from "native-base"
+import { Box, FlatList } from "native-base"
 import InputContainer from "../components/InputContainer"
 import EventCardLG from "../components/cards/EventCardLG"
 import { Posts } from "../configs/Data"
+import { color } from "../configs/colors"
 
 const Popular = () => {
   const [searchTerm, setSearchTerm] = useState("")
   return (
-    <Box p={2}>
+    <Box p={2} _dark={{ bg: color.dark }} _light={{ bg: color.background }}>
       <InputContainer
         searchTerm={searchTerm}
         setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
@@ -19,7 +19,6 @@ const Popular = () => {
         }}
       />
       <FlatList
-        bg="red"
         data={Posts}
         renderItem={({ item }) => {
           return <EventCardLG item={item} />

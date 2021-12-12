@@ -1,7 +1,7 @@
 import React from "react"
 import { useNavigation } from "@react-navigation/core"
-import { View, StyleSheet, Text, FlatList } from "react-native"
 import { Entypo } from "@expo/vector-icons"
+import { Box, FlatList, Heading, HStack, IconButton } from "native-base"
 
 import EventCard from "./EventCard"
 
@@ -12,19 +12,17 @@ interface Props {
 
 const CardContainer = ({ Posts, title }: Props) => {
   const navigation = useNavigation<any>()
-  // const navi = useNavigation<any>();
 
   return (
-    <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Entypo
-          name="dots-three-horizontal"
-          size={24}
-          color="black"
+    <Box flex={1}>
+      <HStack justifyContent="space-between" py="4">
+        <Heading size="lg"> {title}</Heading>
+        <IconButton
+          size={10}
           onPress={() => navigation.navigate(title)}
+          icon={<Entypo name="dots-three-horizontal" size={25} />}
         />
-      </View>
+      </HStack>
       <FlatList
         data={Posts}
         horizontal={true}
@@ -33,25 +31,7 @@ const CardContainer = ({ Posts, title }: Props) => {
           return <EventCard item={item} />
         }}
       />
-    </View>
+    </Box>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    // backgroundColor: "red",
-    height: 300,
-    marginTop: 10,
-  },
-  title: {
-    fontSize: 20,
-    marginLeft: 10,
-    fontFamily: "RobotoMono_700Bold",
-  },
-  titleContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-})
 export default CardContainer

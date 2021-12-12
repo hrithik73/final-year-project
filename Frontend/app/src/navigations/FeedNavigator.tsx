@@ -19,10 +19,6 @@ const FeedNavigator = () => {
         }}
       />
       <Feed.Screen name="Popular" component={Popular}
-        options={{
-          headerTitle: () => null
-        }}
-
       />
       <Feed.Screen name="Latest" component={Latest} />
     </Feed.Navigator>

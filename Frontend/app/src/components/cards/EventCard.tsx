@@ -1,7 +1,15 @@
 import React from "react"
-import { View, StyleSheet, Image, Text } from "react-native"
-import { Entypo } from "@expo/vector-icons"
-
+import { EvilIcons } from "@expo/vector-icons"
+import {
+  Box,
+  AspectRatio,
+  Text,
+  Button,
+  Stack,
+  Heading,
+  HStack,
+  Image,
+} from "native-base"
 import { color } from "../../configs/colors"
 
 interface Props {
@@ -17,95 +25,52 @@ interface Props {
 
 const EventCard = ({ item }: Props) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.detailContainer}>
-        <Text style={styles.time}>{item.time}</Text>
-        <Text style={styles.title}>{item.title}</Text>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
-          <Entypo name="location-pin" size={24} color="black" />
-          <Text style={styles.location}>{item.location}</Text>
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: color.primary,
-              marginLeft: 20,
-              borderRadius: 10,
-              height: 30,
-              width: 50,
-            }}
-          >
-            <Text style={styles.price}>₹{item.price}</Text>
-          </View>
-        </View>
+    <Box
+      shadow="1"
+      rounded="lg"
+      p="2"
+      m="2"
+      w={{ base: "64", md: "80", lg: "md" }}
+      _light={{ bg: color.background }}
+      _dark={{ bg: color.dark }}
+    >
+      <AspectRatio w="100%">
         <Image
-          source={{
-            uri: item.image,
-          }}
-          style={styles.image}
+          borderRadius={10}
+          source={{ uri: item.image }}
+          alt="event image"
         />
-      </View>
-    </View>
+      </AspectRatio>
+      <Text bold position="absolute" color="coolGray.50" top="0" m="4">
+        Tech
+      </Text>
+      <Stack space="2" p="4">
+        <Text color="gray.400">{item.time}</Text>
+        <Heading size={["md", "lg", "md"]} fontWeight="medium">
+          {item.title}
+        </Heading>
+      </Stack>
+      <HStack
+        alignItems="center"
+        justifyContent="space-around"
+        space="5"
+        px="4"
+        pb="2"
+      >
+        <HStack>
+          <EvilIcons name="location" size={24} />
+          <Text
+            _light={{ color: "emerald.800" }}
+            _dark={{ color: "emerald.300" }}
+          >
+            {item.location}
+          </Text>
+        </HStack>
+        <Button colorScheme="secondary" variant="outline">
+          {item.price}
+        </Button>
+      </HStack>
+    </Box>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: "flex-end",
-    padding: 10,
-    margin: 5,
-    paddingBottom: 0,
-    paddingLeft: 0,
-  },
-  detailContainer: {
-    height: "50%",
-    justifyContent: "flex-end",
-    padding: 10,
-    borderRadius: 10,
-    backgroundColor: color.white,
-
-    elevation: 3,
-    shadowOffset: { width: 2, height: 2 },
-    shadowColor: "black",
-    shadowOpacity: 1,
-    shadowRadius: 10,
-  },
-  image: {
-    width: "100%",
-    height: 150,
-    position: "absolute",
-    top: -130,
-    left: 10,
-    right: 0,
-    bottom: 0,
-    borderRadius: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: color.black,
-    marginBottom: 10,
-    // flexGrow: 1,
-    // flexShrink: 1,
-  },
-  time: {
-    fontSize: 15,
-    color: color.gray,
-    marginBottom: 10,
-  },
-  location: {
-    fontSize: 15,
-    color: color.black,
-  },
-  price: {
-    fontSize: 20,
-    color: color.black,
-    fontWeight: "bold",
-  },
-})
 export default EventCard

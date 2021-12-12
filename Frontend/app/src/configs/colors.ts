@@ -10,7 +10,7 @@ export const color = {
   danger: "#f44336",
   info: "#2196f3",
   light: "#f4f4f4",
-  dark: "#212121",
+  dark: "#373a59",
   white: "#ffffff",
   black: "#000000",
   gray: "#9e9e9e",

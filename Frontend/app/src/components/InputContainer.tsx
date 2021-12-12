@@ -1,8 +1,9 @@
 import React from "react"
 import { View, StyleSheet, Pressable } from "react-native"
-import AppTextInput from "./Input"
 import { Feather } from "@expo/vector-icons"
 import { color } from "../configs/colors"
+
+import AppTextInput from "./Input"
 
 interface Props {
   searchTerm: string

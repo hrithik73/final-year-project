@@ -1,11 +1,33 @@
-import React from "react"
-import { View, StyleSheet } from "react-native"
+
+import React, { useState } from "react"
+import { Box, FlatList } from "native-base"
+import InputContainer from "../components/InputContainer"
+import EventCardLG from "../components/cards/EventCardLG"
+import { Posts } from "../configs/Data"
+import { color } from "../configs/colors"
 
 const Latest = () => {
-  return <View style={styles.container}></View>
+  const [searchTerm, setSearchTerm] = useState("")
+  return (
+    <Box p={2} _dark={{ bg: color.dark }} _light={{ bg: color.background }}>
+      <InputContainer
+        searchTerm={searchTerm}
+        setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
+        placeholder="Search for events"
+        iconName="filter"
+        onPressButton={() => {
+          console.log("button pressed")
+        }}
+      />
+      <FlatList
+        data={Posts}
+        renderItem={({ item }) => {
+          return <EventCardLG item={item} />
+        }}
+      />
+    </Box>
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {},
-})
 export default Latest
+

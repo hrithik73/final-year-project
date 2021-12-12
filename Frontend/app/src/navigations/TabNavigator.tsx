@@ -4,14 +4,11 @@ import { Feather, Entypo } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
 
 import CreateEvent from "../screens/CreateEvent"
-import HomeScreen from "../screens/HomeScreen"
 import UserScreen from "../screens/UserScreen"
 import Favourite from "../screens/Favourite"
 import TicketScreen from "../screens/TicketScreen"
 import CreateButton from "../components/buttons/CreateButton"
-import { color } from "../configs/colors"
 import FeedNavigator from "./FeedNavigator"
-import HomeHeaderBar from "../components/HomeHeaderBar"
 
 const Tab = createBottomTabNavigator()
 

@@ -1,13 +1,14 @@
 import React from "react"
 import { View, StyleSheet, Text } from "react-native"
-import { ScrollView } from "react-native-gesture-handler"
-import { Heading, Box } from "native-base"
+import { Heading, Box, ScrollView } from "native-base"
+import { StatusBar } from "expo-status-bar"
 
-import { color } from "../configs/colors"
 import CategoryList from "../components/list/CategoriesList"
 import CardContainer from "../components/cards/CardContainer"
 import { Categories, Posts } from "../configs/Data"
 import InputContainer from "../components/InputContainer"
+
+import { color } from "../configs/colors"
 
 const HomeScreen = () => {
   const [searchTerm, setSearchTerm] = React.useState("")
@@ -18,30 +19,33 @@ const HomeScreen = () => {
   }
 
   return (
-    <Box flex={1} >
-      <ScrollView style={styles.container}>
-        <View style={styles.header}>
-          <Heading size="xl">Welcome Hrithik,</Heading>
-          <Text style={styles.subHeader}>Find Trendy Events</Text>
-          <InputContainer
-            searchTerm={searchTerm}
-            setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
-            placeholder="Search for events"
-            iconName="filter"
-            onPressButton={() => {
-              console.log("button pressed")
-            }}
+    <>
+      <StatusBar />
+      <Box flex={1} _dark={{ bg: color.dark }} _light={{ bg: color.background }}>
+        <ScrollView style={styles.container}>
+          <View style={styles.header}>
+            <Heading size="xl">Welcome Hrithik,</Heading>
+            <Text style={styles.subHeader}>Find Trendy Events</Text>
+            <InputContainer
+              searchTerm={searchTerm}
+              setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
+              placeholder="Search for events"
+              iconName="filter"
+              onPressButton={() => {
+                console.log("button pressed")
+              }}
+            />
+          </View>
+          <CategoryList
+            categories={Categories}
+            selectedCategory={selectedCategory}
+            onSelect={(item) => setSelectedCategories(item)}
           />
-        </View>
-        <CategoryList
-          categories={Categories}
-          selectedCategory={selectedCategory}
-          onSelect={(item) => setSelectedCategories(item)}
-        />
-        <CardContainer Posts={Posts} title="Popular" />
-        <CardContainer Posts={Posts} title="Latest" />
-      </ScrollView>
-    </Box>
+          <CardContainer Posts={Posts} title="Popular" />
+          <CardContainer Posts={Posts} title="Latest" />
+        </ScrollView>
+      </Box>
+    </>
   )
 }
 const styles = StyleSheet.create({

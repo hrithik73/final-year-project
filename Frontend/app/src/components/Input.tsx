@@ -1,6 +1,7 @@
 import React from "react"
 import { StyleSheet, View } from "react-native"
-import { TextInput } from "react-native"
+import { Input, Box } from "native-base"
+
 import { color } from "../configs/colors"
 
 interface Props {
@@ -13,7 +14,7 @@ interface Props {
 const AppTextInput = ({ value, setText, placeholder }: Props) => {
   return (
     <View style={styles.container}>
-      <TextInput
+      <Input
         placeholder={placeholder}
         style={styles.input}
         value={value}
