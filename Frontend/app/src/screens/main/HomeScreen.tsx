@@ -3,16 +3,17 @@ import { View, StyleSheet, Text } from "react-native"
 import { Heading, Box, ScrollView } from "native-base"
 import { StatusBar } from "expo-status-bar"
 
-import CategoryList from "../components/list/CategoriesList"
-import CardContainer from "../components/cards/CardContainer"
-import { Categories, Posts } from "../configs/Data"
-import InputContainer from "../components/InputContainer"
+import CategoryList from "../../components/list/CategoriesList"
+import CardContainer from "../../components/cards/CardContainer"
+import { Categories, Posts } from "../../configs/Data"
+import InputContainer from "../../components/InputContainer"
 
-import { color } from "../configs/colors"
+import { color } from "../../configs/colors"
 
 const HomeScreen = () => {
   const [searchTerm, setSearchTerm] = React.useState("")
   const [selectedCategory, setSelectedCategories] = React.useState("Technolgy")
+  // console.log(isDark)
 
   const handleSearch = (text: string) => {
     setSearchTerm(text)
@@ -21,7 +22,11 @@ const HomeScreen = () => {
   return (
     <>
       <StatusBar />
-      <Box flex={1} _dark={{ bg: color.dark }} _light={{ bg: color.background }}>
+      <Box
+        flex={1}
+        _dark={{ bg: color.dark }}
+        _light={{ bg: color.background }}
+      >
         <ScrollView style={styles.container}>
           <View style={styles.header}>
             <Heading size="xl">Welcome Hrithik,</Heading>

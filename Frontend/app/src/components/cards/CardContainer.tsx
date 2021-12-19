@@ -19,7 +19,7 @@ const CardContainer = ({ Posts, title }: Props) => {
         <Heading size="lg"> {title}</Heading>
         <IconButton
           size={10}
-          onPress={() => navigation.navigate(title)}
+          onPress={() => navigation.navigate("Category")}
           icon={<Entypo name="dots-three-horizontal" size={25} />}
         />
       </HStack>

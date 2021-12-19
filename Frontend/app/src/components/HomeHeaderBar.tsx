@@ -1,12 +1,11 @@
 import React from "react"
-import { SunIcon, MoonIcon, useColorMode, HStack } from "native-base"
+import { Pressable, useColorMode, HStack } from "native-base"
 import { Feather } from "@expo/vector-icons"
 
 import { color } from "../configs/colors"
 
 const HomeHeaderBar = () => {
   const { colorMode, toggleColorMode } = useColorMode()
-  //  console.log(colorMode)
 
   return (
     <HStack
@@ -17,11 +16,15 @@ const HomeHeaderBar = () => {
       _light={{ bg: color.background }}
     >
       {colorMode === "light" ? (
-        <SunIcon size={6} color={color.black} onPress={toggleColorMode} />
+        <Pressable onPress={toggleColorMode}>
+          <Feather name="sun" size={25} color="black" />
+        </Pressable>
       ) : (
-        <MoonIcon size={6} color={color.black} onPress={toggleColorMode} />
+        <Pressable onPress={toggleColorMode}>
+          <Feather name="moon" size={25} color="black" />
+        </Pressable>
       )}
-      <Feather name="bell" size={20} />
+      <Feather name="bell" size={25} />
     </HStack>
   )
 }

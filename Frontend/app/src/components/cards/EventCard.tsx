@@ -11,12 +11,15 @@ import {
   Image,
 } from "native-base"
 import { color } from "../../configs/colors"
+import { Pressable } from "react-native"
+import { useNavigation } from "@react-navigation/core"
 
 interface Props {
   item: {
+    id: string
     title: string
     description: string
-    image: string
+    image: Array<string>
     time: string
     location: string
     price: string
@@ -24,9 +27,14 @@ interface Props {
 }
 
 const EventCard = ({ item }: Props) => {
+  const navigation = useNavigation<any>()
+
+  const onPress = () => {
+    navigation.navigate("Detail", { item: item })
+  }
   return (
     <Box
-      shadow="1"
+      shadow="5"
       rounded="lg"
       p="2"
       m="2"
@@ -34,42 +42,44 @@ const EventCard = ({ item }: Props) => {
       _light={{ bg: color.background }}
       _dark={{ bg: color.dark }}
     >
-      <AspectRatio w="100%">
-        <Image
-          borderRadius={10}
-          source={{ uri: item.image }}
-          alt="event image"
-        />
-      </AspectRatio>
-      <Text bold position="absolute" color="coolGray.50" top="0" m="4">
-        Tech
-      </Text>
-      <Stack space="2" p="4">
-        <Text color="gray.400">{item.time}</Text>
-        <Heading size={["md", "lg", "md"]} fontWeight="medium">
-          {item.title}
-        </Heading>
-      </Stack>
-      <HStack
-        alignItems="center"
-        justifyContent="space-around"
-        space="5"
-        px="4"
-        pb="2"
-      >
-        <HStack>
-          <EvilIcons name="location" size={24} />
-          <Text
-            _light={{ color: "emerald.800" }}
-            _dark={{ color: "emerald.300" }}
-          >
-            {item.location}
-          </Text>
+      <Pressable onPress={onPress}>
+        <AspectRatio w="100%">
+          <Image
+            borderRadius={10}
+            source={{ uri: item.image[0] }}
+            alt="event image"
+          />
+        </AspectRatio>
+        <Text bold position="absolute" color="coolGray.50" top="0" m="4">
+          Tech
+        </Text>
+        <Stack space="2" p="4">
+          <Text color="gray.400">{item.time}</Text>
+          <Heading size={["md", "lg", "md"]} fontWeight="medium">
+            {item.title}
+          </Heading>
+        </Stack>
+        <HStack
+          alignItems="center"
+          justifyContent="space-around"
+          space="5"
+          px="4"
+          pb="2"
+        >
+          <HStack>
+            <EvilIcons name="location" size={24} />
+            <Text
+              _light={{ color: "emerald.800" }}
+              _dark={{ color: "emerald.300" }}
+            >
+              {item.location}
+            </Text>
+          </HStack>
+          <Button onPress={onPress} background={color.primary}>
+            {item.price}
+          </Button>
         </HStack>
-        <Button colorScheme="secondary" variant="outline">
-          {item.price}
-        </Button>
-      </HStack>
+      </Pressable>
     </Box>
   )
 }

@@ -1,8 +1,9 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { View, StyleSheet, Text, Pressable } from "react-native"
 import { Entypo } from "@expo/vector-icons"
 import { FlatList } from "react-native-gesture-handler"
 import { color } from "../../configs/colors"
+import { useNavigation } from "@react-navigation/core"
 
 interface Props {
   categories: any
@@ -11,17 +12,18 @@ interface Props {
 }
 
 const CategoriesList = ({ categories, onSelect, selectedCategory }: Props) => {
-  console.log(selectedCategory)
-
-  useEffect(() => {
-    console.log(selectedCategory)
-  }, [selectedCategory])
+  const navigation = useNavigation<any>()
 
   return (
     <View style={styles.container}>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Categories</Text>
-        <Entypo name="dots-three-horizontal" size={24} color="black" />
+        <Entypo
+          name="dots-three-horizontal"
+          size={24}
+          color="black"
+          onPress={() => navigation.navigate("Category")}
+        />
       </View>
       <FlatList
         style={styles.list}
