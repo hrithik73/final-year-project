@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Feather, Entypo } from "@expo/vector-icons"
 import { useNavigation } from "@react-navigation/native"
@@ -13,8 +13,8 @@ import FeedNavigator from "./FeedNavigator"
 const Tab = createBottomTabNavigator()
 
 const TabNavigator = () => {
+  // Getting the naviation object from the hook
   const navigation = useNavigation<any>()
-
   return (
     <Tab.Navigator>
       <Tab.Screen
