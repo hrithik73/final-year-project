@@ -1,7 +1,6 @@
 import React from "react"
 import { StyleSheet, View } from "react-native"
-import { Input, Box } from "native-base"
-
+import { Input } from "native-base"
 import { color } from "../configs/colors"
 
 interface Props {
@@ -13,14 +12,17 @@ interface Props {
 
 const AppTextInput = ({ value, setText, placeholder }: Props) => {
   return (
-    <View style={styles.container}>
-      <Input
-        placeholder={placeholder}
-        style={styles.input}
-        value={value}
-        onChangeText={(value) => setText(value)}
-      />
-    </View>
+    <Input
+      w={"80%"}
+      pl={3}
+      ml={4}
+      placeholder={placeholder}
+      // style={styles.input}
+      _dark={{ bg: color.dark }}
+      _light={{ bg: color.background }}
+      value={value}
+      onChangeText={(value) => setText(value)}
+    />
   )
 }
 

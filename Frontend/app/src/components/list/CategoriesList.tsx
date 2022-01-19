@@ -57,11 +57,10 @@ const CategoriesList = ({ categories, onSelect, selectedCategory }: Props) => {
     </View>
   )
 }
+
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: "#fff",
     marginTop: 10,
-    // marginHorizontal: 10,
   },
   title: {
     fontSize: 18,

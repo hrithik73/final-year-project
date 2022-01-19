@@ -37,7 +37,7 @@ const HomeScreen = () => {
               placeholder="Search for events"
               iconName="filter"
               onPressButton={() => {
-                console.log("button pressed")
+                console.log("Button Pressed")
               }}
             />
           </View>
