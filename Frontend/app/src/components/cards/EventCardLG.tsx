@@ -1,5 +1,5 @@
-import React from "react"
-import { EvilIcons } from "@expo/vector-icons"
+import React from "react";
+import { EvilIcons } from "@expo/vector-icons";
 import {
   Box,
   AspectRatio,
@@ -9,18 +9,19 @@ import {
   Heading,
   HStack,
   Image,
-} from "native-base"
-import { color } from "../../configs/colors"
+} from "native-base";
+import { color } from "../../configs/colors";
+import { Pressable } from "react-native";
 
 interface Props {
   item: {
-    title: string
-    description: string
-    image: string
-    time: string
-    location: string
-    price: string
-  }
+    title: string;
+    description: string;
+    image: string;
+    time: string;
+    location: string;
+    price: string;
+  };
 }
 
 const EventCardLG = ({ item }: Props) => {
@@ -35,10 +36,13 @@ const EventCardLG = ({ item }: Props) => {
       _light={{ bg: color.background }}
       _dark={{ bg: color.dark }}
     >
+      <Pressable>
+        
+      </Pressable>
       <AspectRatio w="100%">
         <Image
           borderRadius={10}
-          source={{ uri: item.image }}
+          source={{ uri: item.image[0] }}
           alt="event image"
         />
       </AspectRatio>
@@ -47,9 +51,7 @@ const EventCardLG = ({ item }: Props) => {
       </Text>
       <Stack space="2" p="4">
         <Text color="gray.400">{item.time}</Text>
-        <Heading size={["md", "lg", "md"]} fontWeight="medium">
-          {item.title}
-        </Heading>
+        <Heading fontWeight="medium">{item.title}</Heading>
       </Stack>
       <HStack
         alignItems="center"
@@ -72,6 +74,6 @@ const EventCardLG = ({ item }: Props) => {
         </Button>
       </HStack>
     </Box>
-  )
-}
-export default EventCardLG
+  );
+};
+export default EventCardLG;

@@ -1,23 +1,23 @@
-import React from "react"
-import { View, StyleSheet, Text } from "react-native"
-import { Heading, Box, ScrollView } from "native-base"
-import { StatusBar } from "expo-status-bar"
+import React from "react";
+import { View, StyleSheet, Text } from "react-native";
+import { Heading, Box, ScrollView } from "native-base";
+import { StatusBar } from "expo-status-bar";
 
-import CategoryList from "../../components/list/CategoriesList"
-import CardContainer from "../../components/cards/CardContainer"
-import { Categories, Posts } from "../../configs/Data"
-import InputContainer from "../../components/InputContainer"
+import CategoryList from "../../components/list/CategoriesList";
+import CardContainer from "../../components/cards/CardContainer";
+import { Categories, Posts } from "../../configs/Data";
+import InputContainer from "../../components/InputContainer";
 
-import { color } from "../../configs/colors"
+import { color } from "../../configs/colors";
 
 const HomeScreen = () => {
-  const [searchTerm, setSearchTerm] = React.useState("")
-  const [selectedCategory, setSelectedCategories] = React.useState("Technolgy")
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [selectedCategory, setSelectedCategories] = React.useState("Technolgy");
   // console.log(isDark)
 
   const handleSearch = (text: string) => {
-    setSearchTerm(text)
-  }
+    setSearchTerm(text);
+  };
 
   return (
     <>
@@ -37,7 +37,7 @@ const HomeScreen = () => {
               placeholder="Search for events"
               iconName="filter"
               onPressButton={() => {
-                console.log("Button Pressed")
+                console.log("Button Pressed");
               }}
             />
           </View>
@@ -51,8 +51,8 @@ const HomeScreen = () => {
         </ScrollView>
       </Box>
     </>
-  )
-}
+  );
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -75,5 +75,5 @@ const styles = StyleSheet.create({
     fontWeight: "200",
     fontFamily: "RobotoMono_400Regular",
   },
-})
-export default HomeScreen
+});
+export default HomeScreen;

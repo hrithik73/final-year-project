@@ -1,20 +1,19 @@
-import * as React from "react"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { Feather, Entypo } from "@expo/vector-icons"
-import { useNavigation } from "@react-navigation/native"
+import { Entypo, Feather } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { useNavigation } from "@react-navigation/native";
+import * as React from "react";
+import CreateButton from "../components/buttons/CreateButton";
+import CreateEvent from "../screens/main/CreateEvent";
+import Favourite from "../screens/main/Favourite";
+import TicketScreen from "../screens/main/TicketScreen";
+import UserScreen from "../screens/main/UserScreen";
+import FeedNavigator from "./FeedNavigator";
 
-import CreateEvent from "../screens/main/CreateEvent"
-import UserScreen from "../screens/main/UserScreen"
-import Favourite from "../screens/main/Favourite"
-import TicketScreen from "../screens/main/TicketScreen"
-import CreateButton from "../components/buttons/CreateButton"
-import FeedNavigator from "./FeedNavigator"
-
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
   // Getting the naviation object from the hook
-  const navigation = useNavigation<any>()
+  const navigation = useNavigation<any>();
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -64,6 +63,6 @@ const TabNavigator = () => {
         component={UserScreen}
       />
     </Tab.Navigator>
-  )
-}
-export default TabNavigator
+  );
+};
+export default TabNavigator;

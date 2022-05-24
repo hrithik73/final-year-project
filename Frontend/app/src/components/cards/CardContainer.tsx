@@ -1,17 +1,19 @@
-import React from "react"
-import { useNavigation } from "@react-navigation/core"
-import { Entypo } from "@expo/vector-icons"
-import { Box, FlatList, Heading, HStack, IconButton } from "native-base"
+import React from "react";
+import { useNavigation } from "@react-navigation/core";
+import { Entypo } from "@expo/vector-icons";
+import { Box, FlatList, Heading, HStack, IconButton } from "native-base";
 
-import EventCard from "./EventCard"
+import EventCard from "./EventCard";
 
 interface Props {
-  Posts: any
-  title: string
+  Posts: any;
+  title: string;
 }
 
 const CardContainer = ({ Posts, title }: Props) => {
-  const navigation = useNavigation<any>()
+  const navigation = useNavigation<any>();
+
+  console.log(title);
 
   return (
     <Box flex={1}>
@@ -19,7 +21,7 @@ const CardContainer = ({ Posts, title }: Props) => {
         <Heading size="lg"> {title}</Heading>
         <IconButton
           size={10}
-          onPress={() => navigation.navigate("Category")}
+          onPress={() => navigation.navigate(title)}
           icon={<Entypo name="dots-three-horizontal" size={25} />}
         />
       </HStack>
@@ -28,10 +30,10 @@ const CardContainer = ({ Posts, title }: Props) => {
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
-          return <EventCard item={item} />
+          return <EventCard item={item} />;
         }}
       />
     </Box>
-  )
-}
-export default CardContainer
+  );
+};
+export default CardContainer;

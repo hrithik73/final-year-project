@@ -1,14 +1,14 @@
-import React from "react"
-import { createStackNavigator } from "@react-navigation/stack"
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from "../screens/main/HomeScreen"
-import Popular from "../screens/Popular"
-import Latest from "../screens/Latest"
-import HomeHeaderBar from "../components/HomeHeaderBar"
-import CategoriesScreen from "../screens/CategoriesScreen"
-import EventDetailScreen from "../screens/EventDetailScreen"
+import HomeScreen from "../screens/main/HomeScreen";
+import Popular from "../screens/Popular";
+import Latest from "../screens/Latest";
+import HomeHeaderBar from "../components/HomeHeaderBar";
+import CategoriesScreen from "../screens/CategoriesScreen";
+import EventDetailScreen from "../screens/EventDetailScreen";
 
-const Feed = createStackNavigator()
+const Feed = createStackNavigator();
 
 const FeedNavigator = () => {
   return (
@@ -25,7 +25,7 @@ const FeedNavigator = () => {
       <Feed.Screen name="Detail" component={EventDetailScreen} />
       <Feed.Screen name="Latest" component={Latest} />
     </Feed.Navigator>
-  )
-}
+  );
+};
 
-export default FeedNavigator
+export default FeedNavigator;

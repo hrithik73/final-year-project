@@ -1,5 +1,5 @@
-import React from "react"
-import { EvilIcons } from "@expo/vector-icons"
+import React from "react";
+import { EvilIcons } from "@expo/vector-icons";
 import {
   Box,
   AspectRatio,
@@ -9,29 +9,29 @@ import {
   Heading,
   HStack,
   Image,
-} from "native-base"
-import { color } from "../../configs/colors"
-import { Pressable } from "react-native"
-import { useNavigation } from "@react-navigation/core"
+} from "native-base";
+import { color } from "../../configs/colors";
+import { Pressable } from "react-native";
+import { useNavigation } from "@react-navigation/core";
 
 interface Props {
   item: {
-    id: string
-    title: string
-    description: string
-    image: Array<string>
-    time: string
-    location: string
-    price: string
-  }
+    id: string;
+    title: string;
+    description: string;
+    image: Array<string>;
+    time: string;
+    location: string;
+    price: string;
+  };
 }
 
 const EventCard = ({ item }: Props) => {
-  const navigation = useNavigation<any>()
+  const navigation = useNavigation<any>();
 
   const onPress = () => {
-    navigation.navigate("Detail", { item: item })
-  }
+    navigation.navigate("Detail", { item: item });
+  };
   return (
     <Box
       shadow="5"
@@ -39,6 +39,8 @@ const EventCard = ({ item }: Props) => {
       p="2"
       m="2"
       w={{ base: "64", md: "80", lg: "md" }}
+      // height={"xs"}
+      h="350px"
       _light={{ bg: color.background }}
       _dark={{ bg: color.dark }}
     >
@@ -55,7 +57,7 @@ const EventCard = ({ item }: Props) => {
         </Text>
         <Stack space="2" p="4">
           <Text color="gray.400">{item.time}</Text>
-          <Heading size={["md", "lg", "md"]} fontWeight="medium">
+          <Heading size={"sm"} fontWeight="medium">
             {item.title}
           </Heading>
         </Stack>
@@ -64,7 +66,6 @@ const EventCard = ({ item }: Props) => {
           justifyContent="space-around"
           space="5"
           px="4"
-          pb="2"
         >
           <HStack>
             <EvilIcons name="location" size={24} />
@@ -81,6 +82,6 @@ const EventCard = ({ item }: Props) => {
         </HStack>
       </Pressable>
     </Box>
-  )
-}
-export default EventCard
+  );
+};
+export default EventCard;

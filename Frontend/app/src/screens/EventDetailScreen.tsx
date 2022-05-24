@@ -1,35 +1,46 @@
-import React from "react"
-import { Box, Heading, HStack, Icon, VStack, Text } from "native-base"
-import { Dimensions, Platform } from "react-native"
+import React from "react";
+import {
+  Box,
+  Heading,
+  HStack,
+  Icon,
+  VStack,
+  Text,
+  Modal,
+  Button,
+} from "native-base";
+import { Dimensions, Platform } from "react-native";
 
 import Carousel, {
   AdditionalParallaxProps,
   ParallaxImage,
-} from "react-native-snap-carousel"
+} from "react-native-snap-carousel";
 
-import { color } from "../configs/colors"
-import Entypo from "@expo/vector-icons/build/Entypo"
+import { color } from "../configs/colors";
+import Entypo from "@expo/vector-icons/build/Entypo";
+import PaymentModal from "../components/Payment";
 
 interface routeType {
   route: {
     params: {
       item: {
-        id: number
-        title: string
-        image: Array<string>
-        time: string
-        location: string
-        price: string
-        description: string
-      }
-    }
-  }
+        id: number;
+        title: string;
+        image: Array<string>;
+        time: string;
+        location: string;
+        price: string;
+        description: string;
+      };
+    };
+  };
 }
 
-const { width: screenWidth } = Dimensions.get("window")
+const { width: screenWidth } = Dimensions.get("window");
 
 const EventDetailScreen = ({ route }: routeType) => {
-  const { item } = route.params
+  const [modalVisible, setModalVisible] = React.useState(false);
+  const { item } = route.params;
   // console.log(item)
   const renderItem = (
     item: { index: number; item: any },
@@ -50,8 +61,8 @@ const EventDetailScreen = ({ route }: routeType) => {
           {...parallaxProps}
         />
       </Box>
-    )
-  }
+    );
+  };
 
   return (
     <Box>
@@ -95,7 +106,19 @@ const EventDetailScreen = ({ route }: routeType) => {
           <Text>{item.description}</Text>
         </Box>
       </VStack>
+      <Button
+        w="56"
+        borderRadius="lg"
+        alignSelf="center"
+        marginTop="20"
+        variant="subtle"
+        colorScheme="error"
+        onPress={() => setModalVisible(true)}
+      >
+        Book Event
+      </Button>
+      <PaymentModal visible={modalVisible} />
     </Box>
-  )
-}
-export default EventDetailScreen
+  );
+};
+export default EventDetailScreen;
