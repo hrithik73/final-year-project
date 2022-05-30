@@ -1,15 +1,20 @@
-import React from "react"
-import { View, StyleSheet, Text } from "react-native"
+import { Box, FlatList } from "native-base";
+import React from "react";
+import EventCardLG from "../../components/cards/EventCardLG";
+import { color } from "../../configs/colors";
+import { Posts } from "../../configs/Data";
 
 const Favourite = () => {
   return (
-    <View style={styles.container}>
-      <Text>Favourite</Text>
-    </View>
-  )
-}
+    <Box p={2} _dark={{ bg: color.dark }} _light={{ bg: color.background }}>
+      <FlatList
+        data={Posts}
+        renderItem={({ item }) => {
+          return <EventCardLG item={item} />;
+        }}
+      />
+    </Box>
+  );
+};
 
-const styles = StyleSheet.create({
-  container: {},
-})
-export default Favourite
+export default Favourite;

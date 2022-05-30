@@ -1,24 +1,23 @@
-import React from "react";
+import Entypo from "@expo/vector-icons/build/Entypo";
 import {
   Box,
+  Button,
+  Checkbox,
   Heading,
   HStack,
   Icon,
-  VStack,
-  Text,
   Modal,
-  Button,
+  ScrollView,
+  Text,
+  VStack,
 } from "native-base";
+import React from "react";
 import { Dimensions, Platform } from "react-native";
-
 import Carousel, {
   AdditionalParallaxProps,
   ParallaxImage,
 } from "react-native-snap-carousel";
-
 import { color } from "../configs/colors";
-import Entypo from "@expo/vector-icons/build/Entypo";
-import PaymentModal from "../components/Payment";
 
 interface routeType {
   route: {
@@ -41,7 +40,7 @@ const { width: screenWidth } = Dimensions.get("window");
 const EventDetailScreen = ({ route }: routeType) => {
   const [modalVisible, setModalVisible] = React.useState(false);
   const { item } = route.params;
-  // console.log(item)
+
   const renderItem = (
     item: { index: number; item: any },
     parallaxProps: AdditionalParallaxProps | undefined
@@ -57,7 +56,6 @@ const EventDetailScreen = ({ route }: routeType) => {
             borderRadius: 8,
           }}
           parallaxFactor={0.4}
-          // style={styles.image}
           {...parallaxProps}
         />
       </Box>
@@ -65,13 +63,12 @@ const EventDetailScreen = ({ route }: routeType) => {
   };
 
   return (
-    <Box>
+    <ScrollView>
       <Carousel
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
         itemWidth={screenWidth - 60}
         data={item.image}
-        // renderItem={renderItem}
         renderItem={(item, parallaxProps) => renderItem(item, parallaxProps)}
         hasParallaxImages={true}
         inactiveSlideScale={0.94}
@@ -105,20 +102,50 @@ const EventDetailScreen = ({ route }: routeType) => {
           </Heading>
           <Text>{item.description}</Text>
         </Box>
+        <Button
+          variant="subtle"
+          colorScheme="error"
+          mt="10"
+          mb="10"
+          onPress={() => setModalVisible(true)}
+        >
+          Book Event
+        </Button>
       </VStack>
-      <Button
-        w="56"
-        borderRadius="lg"
-        alignSelf="center"
-        marginTop="20"
-        variant="subtle"
-        colorScheme="error"
-        onPress={() => setModalVisible(true)}
-      >
-        Book Event
-      </Button>
-      <PaymentModal visible={modalVisible} />
-    </Box>
+
+      <Modal isOpen={modalVisible} onClose={() => setModalVisible(false)}>
+        <Modal.Content
+          w="100%"
+          style={{ marginBottom: 0, marginTop: "auto" }}
+          h="xs"
+        >
+          <Modal.Header
+            style={{
+              backgroundColor: "#1D2A3A",
+              alignItems: "center",
+            }}
+          >
+            <Text color="white">Choose Payment Option</Text>
+          </Modal.Header>
+          <Modal.Body>
+            <VStack space="7">
+              <Checkbox colorScheme="blue" value="Something">
+                Google Pay
+              </Checkbox>
+              <Checkbox colorScheme="green" value="Something">
+                UPI
+              </Checkbox>
+              <Checkbox colorScheme="green" value="Something">
+                Net Banking
+              </Checkbox>
+              <Checkbox colorScheme="green" value="Something">
+                Debit Card
+              </Checkbox>
+            </VStack>
+          </Modal.Body>
+        </Modal.Content>
+      </Modal>
+    </ScrollView>
   );
 };
 export default EventDetailScreen;

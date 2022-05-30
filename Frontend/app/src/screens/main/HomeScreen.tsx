@@ -1,14 +1,12 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { Heading, Box, ScrollView } from "native-base";
 import { StatusBar } from "expo-status-bar";
-
-import CategoryList from "../../components/list/CategoriesList";
+import { Box, Heading, ScrollView } from "native-base";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 import CardContainer from "../../components/cards/CardContainer";
-import { Categories, Posts } from "../../configs/Data";
 import InputContainer from "../../components/InputContainer";
-
+import CategoryList from "../../components/list/CategoriesList";
 import { color } from "../../configs/colors";
+import { Categories, Posts } from "../../configs/Data";
 
 const HomeScreen = () => {
   const [searchTerm, setSearchTerm] = React.useState("");
@@ -48,6 +46,8 @@ const HomeScreen = () => {
           />
           <CardContainer Posts={Posts} title="Popular" />
           <CardContainer Posts={Posts} title="Latest" />
+          <CardContainer Posts={Posts} title="Event You May Like" />
+          <Box mb={10}></Box>
         </ScrollView>
       </Box>
     </>
@@ -57,11 +57,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
-    // backgroundColor: color.background,
   },
-  header: {
-    // padding: 15,
-  },
+  header: {},
   headerText: {
     color: color.textDark,
     fontSize: 25,

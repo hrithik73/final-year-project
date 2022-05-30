@@ -1,6 +1,5 @@
 export const color = {
-  primary: "rgb(255, 45, 85)",
-  // background: "#f7f7f7",
+  primary: "#FF2D55",
   background: "#f7f7f7",
   textLight: "#fff",
   textDark: "#000",
@@ -10,9 +9,8 @@ export const color = {
   danger: "#f44336",
   info: "#2196f3",
   light: "#f4f4f4",
-  // dark: "#373a59",
-  dark: "#102a43",
+  dark: "black",
   white: "#ffffff",
   black: "#000000",
   gray: "#9e9e9e",
-}
+};

@@ -7,6 +7,8 @@ import Latest from "../screens/Latest";
 import HomeHeaderBar from "../components/HomeHeaderBar";
 import CategoriesScreen from "../screens/CategoriesScreen";
 import EventDetailScreen from "../screens/EventDetailScreen";
+import Login from "../screens/auth/Login";
+import SignUp from "../screens/auth/SignUp";
 
 const Feed = createStackNavigator();
 
@@ -24,6 +26,9 @@ const FeedNavigator = () => {
       <Feed.Screen name="Category" component={CategoriesScreen} />
       <Feed.Screen name="Detail" component={EventDetailScreen} />
       <Feed.Screen name="Latest" component={Latest} />
+
+      <Feed.Screen name="Login" component={Login} />
+      <Feed.Screen name="SignUp" component={SignUp} />
     </Feed.Navigator>
   );
 };

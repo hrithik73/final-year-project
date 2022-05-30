@@ -1,18 +1,16 @@
-import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import TabNavigator from "./TabNavigator";
-
-import { darkTheme, lightTheme } from "../configs/theme";
 import { useColorMode } from "native-base";
-import FeedNavigator from "./FeedNavigator";
+import * as React from "react";
+import { darkTheme, lightTheme } from "../configs/theme";
+import TabNavigator from "./TabNavigator";
 
 const AppNavigation = () => {
   const { colorMode } = useColorMode();
 
   return (
     <NavigationContainer theme={colorMode === "dark" ? darkTheme : lightTheme}>
-      {/* <TabNavigator /> */}
-      <FeedNavigator />
+      <TabNavigator />
+      {/* <AuthNavigator /> */}
     </NavigationContainer>
   );
 };

@@ -29,6 +29,7 @@ const TabNavigator = () => {
       <Tab.Screen
         name="Fav"
         options={{
+          headerTitle: "Event You have liked",
           tabBarIcon: ({ color, size }) => (
             <Feather name="heart" size={size} color={color} />
           ),
